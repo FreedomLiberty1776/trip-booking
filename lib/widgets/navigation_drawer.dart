@@ -4,7 +4,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:trip_booking/pages/trips.dart';
 
 import '../models/app_controller.dart';
 
@@ -13,7 +15,8 @@ import '../models/app_controller.dart';
 // import '../../pages/earnings/earnings.dart';
 
 class NavigationDrawer extends StatelessWidget {
-  const NavigationDrawer({
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  NavigationDrawer({
     Key? key,
   }) : super(key: key);
   // Widget loginLogout(bool value) {
@@ -49,11 +52,11 @@ class NavigationDrawer extends StatelessWidget {
                         CircleAvatar(
                           radius: 50.h,
                           backgroundImage:
-                              const AssetImage("assets/images/profile.JPG"),
+                              const AssetImage("assets/images/user_image.png"),
                         ),
                         Stack(
                           children: [
-                            Container(
+                            SizedBox(
                               // color: Colors.blue,
                               width: ScreenUtil().screenWidth * 0.8,
                               child: Column(
@@ -61,7 +64,8 @@ class NavigationDrawer extends StatelessWidget {
                                   Padding(
                                     padding:
                                         EdgeInsets.symmetric(vertical: 7.h),
-                                    child: Text('Emmanuel Adu'),
+                                    child:
+                                        Text(_auth.currentUser!.displayName!),
                                   ),
                                 ],
                               ),
@@ -89,27 +93,34 @@ class NavigationDrawer extends StatelessWidget {
                     ),
                   ),
                 ),
-                const ListTile(
-                  leading: Icon(Icons.trip_origin),
-                  title: Text('My Trips'),
-                  visualDensity: VisualDensity.compact,
-                  minLeadingWidth: 0,
-                ),
                 ListTile(
-                  leading: const Icon(Icons.password),
-                  title: const Text('Change Password'),
-                  onTap: () {
-                    // Navigator.push(
-                    //     context,
-                    //     PageTransition(
-                    //         curve: Curves.easeIn,
-                    //         duration: const Duration(milliseconds: 200),
-                    //         type: PageTransitionType.rightToLeft,
-                    //         child: BarcodeReader()));
-                  },
+                  leading: const Icon(Icons.trip_origin),
+                  title: const Text('My Trips'),
                   visualDensity: VisualDensity.compact,
                   minLeadingWidth: 0,
+                  onTap: () => Navigator.push(
+                      context,
+                      PageTransition(
+                          curve: Curves.easeIn,
+                          duration: const Duration(milliseconds: 200),
+                          type: PageTransitionType.rightToLeft,
+                          child: MyTrips())),
                 ),
+                // ListTile(
+                //   leading: const Icon(Icons.password),
+                //   title: const Text('Change Password'),
+                //   onTap: () {
+                //     // Navigator.push(
+                //     //     context,
+                //     //     PageTransition(
+                //     //         curve: Curves.easeIn,
+                //     //         duration: const Duration(milliseconds: 200),
+                //     //         type: PageTransitionType.rightToLeft,
+                //     //         child: BarcodeReader()));
+                //   },
+                //   visualDensity: VisualDensity.compact,
+                //   minLeadingWidth: 0,
+                // ),
                 ListTile(
                   leading: const Icon(Icons.file_copy),
                   title: const Text('Terms & Conditions'),
@@ -119,13 +130,13 @@ class NavigationDrawer extends StatelessWidget {
                   visualDensity: VisualDensity.compact,
                   minLeadingWidth: 0,
                 ),
-                ListTile(
-                  leading: const Icon(Icons.settings),
-                  title: const Text('Settings'),
-                  onTap: () {},
-                  visualDensity: VisualDensity.compact,
-                  minLeadingWidth: 0,
-                ),
+                // ListTile(
+                //   leading: const Icon(Icons.settings),
+                //   title: const Text('Settings'),
+                //   onTap: () {},
+                //   visualDensity: VisualDensity.compact,
+                //   minLeadingWidth: 0,
+                // ),
                 ListTile(
                   leading: const Icon(Icons.phone_enabled),
                   title: const Text('Support'),

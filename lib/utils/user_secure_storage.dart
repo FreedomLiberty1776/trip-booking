@@ -179,7 +179,7 @@ class UserSecureStorage {
     try {
       var t = await _storage.read(key: 'favorites');
       //print('this is the favoirtes pulled from storate $t');
-      return t == null ? "[]" : t;
+      return t ?? "[]";
     } catch (e) {
       return "[]";
     }

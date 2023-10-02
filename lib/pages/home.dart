@@ -1,8 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:trip_booking/pages/available_trips.dart';
+import 'package:trip_booking/pages/success_page.dart';
+import 'package:trip_booking/utils/messages_and_notifications.dart';
 import '../utils/datetime.dart';
 import '../widgets/navigation_drawer.dart';
 
@@ -20,28 +24,18 @@ import '../widgets/navigation_drawer.dart';
 //   }
 // }
 
-const List<String> location = <String>[
-  "Select Location",
-  "Accra",
-  "Kumasi",
-  "Bolga",
-  "Navorongo",
-  "Paga",
-  "Wa",
-  "Nandom",
-  "Aflao",
-  "Elubo",
-  "Abidjan",
-  "Berekum",
-  "Bunso",
-  "Tamale",
-  "Dormaa",
-  "Ho",
-  "Sunayani",
-  "Cape Coast",
-  "Tema",
-  "Takoradi",
-];
+List<String> defaultLocations() => <String>[
+      "Select Location",
+      "Accra",
+      "Kumasi",
+      "Bolga",
+      "Wa",
+      "Tamale",
+      "Ho",
+      "Cape Coast",
+      'Koforidua',
+      "Takoradi",
+    ];
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -52,18 +46,33 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  // final db = FirebaseFirestore.instance;
 
   final TextEditingController _txtFormCtrl = TextEditingController();
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  String fromValue = location.first;
-  String toValue = location.first;
+  List<String> from = [];
+  List<String> to = [];
+
+  String fromValue = "Sunyani";
+  String toValue = defaultLocations().first;
   DateTime date = DateTime.now();
 
   @override
   void initState() {
+    from = locations(null);
+    to = locations(null);
     _txtFormCtrl.text = getFormatedDate(date);
     super.initState();
+  }
+
+  List<String> locations(String? notIncluded) {
+    List<String> c = defaultLocations();
+
+    if (notIncluded != null) {
+      c.remove(notIncluded);
+    }
+    return c;
   }
 
   @override
@@ -83,7 +92,7 @@ class _HomeState extends State<Home> {
           ),
         ),
         title: const Text('Book Trip'),
-        elevation: 0,
+        elevation: 4,
         centerTitle: true,
       ),
       body: Padding(
@@ -124,10 +133,32 @@ class _HomeState extends State<Home> {
                   child: Center(
                     child: InkWell(
                       onTap: (() async {
+                        // await db.collection("buses").get().then((event) {
+                        //   for (var doc in event.docs) {
+                        //     print("${doc.id} => ${doc.data()}");
+                        //   }
+                        // });
+
+                        if (fromValue == "Select Location" ||
+                            toValue == "Select Location") {
+                          showToastInfo(
+                              'Please select a departure and destination locations');
+                          return;
+                        }
                         Navigator.push(
                             context,
-                            MaterialPageRoute(
-                                builder: (context) => AvailableTrips()));
+                            PageTransition(
+                                curve: Curves.easeIn,
+                                duration: const Duration(milliseconds: 200),
+                                type: PageTransitionType.rightToLeft,
+                                child:
+                                    // SucessfulPage()
+
+                                    AvailableTrips(
+                                  from: fromValue,
+                                  to: toValue,
+                                  datetime: _txtFormCtrl.text,
+                                )));
                       }),
                       child: Container(
                         alignment: Alignment.center,
@@ -154,7 +185,7 @@ class _HomeState extends State<Home> {
           ],
         ),
       ),
-      drawer: const NavigationDrawer(),
+      drawer: NavigationDrawer(),
     );
   }
 
@@ -195,6 +226,8 @@ class _HomeState extends State<Home> {
   }
 
   dropdownItem(String loc) {
+    List<String> places = loc == "From" ? from : to;
+
     return InputDecorator(
       decoration: const InputDecoration(
           border: OutlineInputBorder(
@@ -218,21 +251,33 @@ class _HomeState extends State<Home> {
               elevation: 16,
               // style: const TextStyle(color: Colors.deepPurple),
               onChanged: (String? value) {
-                // This is called when the user selects an item.
                 setState(() {
                   if (loc == "From") {
-                    fromValue = value!;
+                    // if (value != "Select Location") {
+                    //   to = locations(value);
+                    // }
+                    // fromValue = value!;
                   } else {
+                    if (value != "Select Location") {
+                      from = locations(value);
+                    }
                     toValue = value!;
                   }
                 });
               },
-              items: location.map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Text(value),
-                );
-              }).toList(),
+              items: loc == "From"
+                  ? [
+                      const DropdownMenuItem(
+                        value: "Sunyani",
+                        child: Text('Sunyani'),
+                      )
+                    ]
+                  : places.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
             ),
           ),
         ],
@@ -264,6 +309,7 @@ class _HomeState extends State<Home> {
                 child: SizedBox(
                   height: 200,
                   child: CupertinoDatePicker(
+                    minimumDate: date,
                     mode: CupertinoDatePickerMode.date,
                     initialDateTime: date,
                     onDateTimeChanged: (DateTime newDateTime) {

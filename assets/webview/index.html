@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	</head>
+	<body id="home">
+		<!-- <button type="submit" class="pay pay-button" onclick="payWithPaystack(event)">
+			Submit
+		</button> -->
+
+		<script>
+			/*var pay = document.querySelector(".pay");
+			var popupModal = document.getElementById("popupModal");
+
+			const paymentForm = document.getElementById("paymentForm");
+			paymentForm.addEventListener("submit", payWithPaystack, false);*/
+
+			function payWithPaystack(amt, reference, key, phone) {
+				//event.preventDefault();
+				//console.log(amt.split(".").join(""));
+				let handler = PaystackPop.setup({
+					key: key, // Replace with your public key
+					email: phone + "@sunyani.com",
+					amount: amt.split(".").join(""),
+					currency: "GHS",
+					ref: reference,
+					onClose: function () {
+						JavascriptChannel.postMessage("close");
+					},
+					callback: function (response) {
+						if (response.hasOwnProperty("status") && response.status == "success") {
+							JavascriptChannel.postMessage("paid");
+						}
+
+						//alert(message);
+					},
+				});
+				handler.openIframe();
+				//JavascriptChannel.postMessage("Hellow world from javascript");
+			}
+
+			//payWithPaystack(22);
+		</script>
+
+		<script src="stack.js"></script>
+	</body>
+</html>

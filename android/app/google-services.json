@@ -1,248 +1,47 @@
 {
-  "project_info": {
-    "project_number": "1067758283526",
-    "project_id": "teleport-4a433",
-    "storage_bucket": "teleport-4a433.appspot.com"
-  },
-  "client": [
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1067758283526:android:d3f9d489efa81b21258c87",
-        "android_client_info": {
-          "package_name": "com.example.eazzier_personal"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1067758283526-47d6ojvsj711r7npfhqoud75la818ldi.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.eazzier_personal",
-            "certificate_hash": "c91aa498b6550adcca5039aa3c82ddbd8c34463c"
-          }
-        },
-        {
-          "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBVaYO4ZokuhfdeYLomz8b7RAQWEB9WuBk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1067758283526:android:6f8e1a474cd894c0258c87",
-        "android_client_info": {
-          "package_name": "com.example.trip_booking"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1067758283526-qlv1hiusj6it7rhia1dl604b0e1reoih.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.trip_booking",
-            "certificate_hash": "c91aa498b6550adcca5039aa3c82ddbd8c34463c"
-          }
-        },
-        {
-          "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBVaYO4ZokuhfdeYLomz8b7RAQWEB9WuBk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1067758283526:android:07b46693b5d5e375258c87",
-        "android_client_info": {
-          "package_name": "com.teleport.courierapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1067758283526-lsuol3bo9ml9a2id08s989770c0s3bt3.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.teleport.courierapp",
-            "certificate_hash": "c91aa498b6550adcca5039aa3c82ddbd8c34463c"
-          }
-        },
-        {
-          "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBVaYO4ZokuhfdeYLomz8b7RAQWEB9WuBk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1067758283526:android:441cabc51de022f6258c87",
-        "android_client_info": {
-          "package_name": "com.teleport.teleportadmin"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1067758283526-2uin0t1l84di6v2vb22ifr2o66efm7gs.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.teleport.teleportadmin",
-            "certificate_hash": "c91aa498b6550adcca5039aa3c82ddbd8c34463c"
-          }
-        },
-        {
-          "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBVaYO4ZokuhfdeYLomz8b7RAQWEB9WuBk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1067758283526:android:d3d76dc6a3c2cbb4258c87",
-        "android_client_info": {
-          "package_name": "com.teleport.teleportmainapp"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1067758283526-119n92h720e3h8c3icqndc1fespmo2fk.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.teleport.teleportmainapp",
-            "certificate_hash": "c91aa498b6550adcca5039aa3c82ddbd8c34463c"
-          }
-        },
-        {
-          "client_id": "1067758283526-fdor4rj4l3uoctdbsb2f0btpujt56ig6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.teleport.teleportmainapp",
-            "certificate_hash": "56e386c24f3b1eee86ee5ad8c60dace804aba7cf"
-          }
-        },
-        {
-          "client_id": "1067758283526-i1uicvtjpasc5i5a82cee0tbl7u2qdbq.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.teleport.teleportmainapp",
-            "certificate_hash": "899cd80e269987782d1d7781d7d32636c612db21"
-          }
-        },
-        {
-          "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBVaYO4ZokuhfdeYLomz8b7RAQWEB9WuBk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1067758283526:android:70f3c78ba9850b99258c87",
-        "android_client_info": {
-          "package_name": "com.teleport.teleportstore"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "1067758283526-u7h3vtvp1ushocq862909v4elgeoa013.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.teleport.teleportstore",
-            "certificate_hash": "c91aa498b6550adcca5039aa3c82ddbd8c34463c"
-          }
-        },
-        {
-          "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyBVaYO4ZokuhfdeYLomz8b7RAQWEB9WuBk"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1067758283526-qk9melcs36ettbksbc3jrillkmserapl.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "configuration_version": "1"
+	"project_info": {
+		"project_number": "669951592079",
+		"project_id": "booking-trip-d00bf",
+		"storage_bucket": "booking-trip-d00bf.appspot.com"
+	},
+	"client": [
+		{
+			"client_info": {
+				"mobilesdk_app_id": "1:669951592079:android:5d61ac5efe7a0fce6d52fa",
+				"android_client_info": {
+					"package_name": "com.trip_booking.trip_booking_project_app"
+				}
+			},
+			"oauth_client": [
+				{
+					"client_id": "669951592079-3ahfhcs6gjrqvhf9iouh95607fd501e2.apps.googleusercontent.com",
+					"client_type": 1,
+					"android_info": {
+						"package_name": "com.trip_booking.trip_booking_project_app",
+						"certificate_hash": "c91aa498b6550adcca5039aa3c82ddbd8c34463c"
+					}
+				},
+				{
+					"client_id": "669951592079-bevelih8bib7dpttkmjjbcfskd3kvk6t.apps.googleusercontent.com",
+					"client_type": 3
+				}
+			],
+			"api_key": [
+				{
+					"current_key": "AIzaSyDXsf7UsL6ta1epe3NXS27FmPmd-R9m3ek"
+				}
+			],
+			"services": {
+				"appinvite_service": {
+					"other_platform_oauth_client": [
+						{
+							"client_id": "669951592079-bevelih8bib7dpttkmjjbcfskd3kvk6t.apps.googleusercontent.com",
+							"client_type": 3
+						}
+					]
+				}
+			}
+		}
+	],
+	"configuration_version": "1"
 }

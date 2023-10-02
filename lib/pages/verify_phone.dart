@@ -77,6 +77,7 @@ class VerifyNumberState extends State<VerifyNumber> {
         print(_auth.currentUser!.displayName);
         print(_auth.currentUser!.phoneNumber);
         print(_auth.currentUser!.isAnonymous);
+        print(_auth.currentUser!.uid);
 
         if (_auth.currentUser!.displayName != null) {
           Navigator.pushReplacementNamed(context, '/home');
